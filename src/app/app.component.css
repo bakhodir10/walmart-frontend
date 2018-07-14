@@ -1,0 +1,9 @@
+mat-toolbar{
+    background-color:#3f51b5;
+}
+#btn{
+    background-color:#3f51b5;
+}
+.example-fill-remaining-space{
+    flex: 1 1 auto;
+}
