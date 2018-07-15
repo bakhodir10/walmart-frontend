@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'employees',
     component: EmployeeComponent,
-    canActivate: [AuthGuard],
+    canActivate: [RoleGuard],
     data: {
       expectedRole: 'manager'
     }

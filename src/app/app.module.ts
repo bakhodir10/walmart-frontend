@@ -13,16 +13,16 @@ import { AppComponent } from './app.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { LoginComponent } from './login/login.component';
 import { RoleGuardService } from './auth/role-guard.service';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent,
     EmployeeComponent,
     LoginComponent
   ],
@@ -35,6 +35,7 @@ import { RoleGuardService } from './auth/role-guard.service';
     MatToolbarModule,
     MatGridListModule,
     MatIconModule,
+    RouterModule.forRoot(AppRoutingModule)
   ],
   providers: [AuthService, AuthGuardService, RoleGuardService],
   bootstrap: [AppComponent]
