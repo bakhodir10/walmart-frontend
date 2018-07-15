@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { RoleGuardService } from './auth/role-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RoleGuardService } from './auth/role-guard.service';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    AppRouters
+    AppRouters,
+    HttpClientModule
 
   ],
   providers: [AuthService, AuthGuardService, RoleGuardService],
