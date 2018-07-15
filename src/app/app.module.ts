@@ -1,25 +1,26 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MaterialModule } from './material.module';
 import { AppRouters } from './app.routes';
- 
-// import {MdButtonModule, MdCheckboxModule,MdGridListModule,MdInputModule,MdIconModule} from '@angular/material';
-
-
-import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import { UserComponent } from './user/user.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { NgModule } from '@angular/core';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthService } from './auth/auth.service';
+import { RoleGuardService } from './auth/role-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    UserComponent,
+    EmployeeComponent,
+    HomeComponent,
     LoginComponent
   ],
   imports: [
@@ -27,11 +28,10 @@ import { LoginComponent } from './login/login.component';
     BrowserAnimationsModule,
     FlexLayoutModule,
     MaterialModule,
-    AppRouters,
-    NgbModule.forRoot()
+    AppRouters
 
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService, RoleGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
