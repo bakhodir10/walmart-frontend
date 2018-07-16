@@ -22,7 +22,7 @@ const routes: Routes = [
         expectedRole: 'manager'
       }
     },
-    { path: '', redirectTo: 'home', pathMatch: 'full'}
+    { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({
