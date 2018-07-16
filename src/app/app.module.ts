@@ -1,3 +1,4 @@
+import { AuthModel } from './auth/auth.model';
 
 import { FormsModule } from '@angular/forms';
 
@@ -21,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth/auth.interceptor.service';
 import {UserService} from './user/user.service';
 import {ProductService} from './products/product.service';
+import { User } from './user/user.model';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {ProductService} from './products/product.service';
     AuthGuardService,
     RoleGuardService,
     UserService,
-    ProductService
+    ProductService,
+    User,
+    AuthModel
   ],
   bootstrap: [AppComponent]
 })
