@@ -7,10 +7,12 @@ import { AuthGuardService as AuthGuard, AuthGuardService } from './auth/auth-gua
 import { RoleGuardService as RoleGuard, RoleGuardService } from './auth/role-guard.service';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
+import { SignUpComponent } from './signUp/sign-up.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'products', component: ProductsComponent },
+    { path: 'signup', component: SignUpComponent },
     {path: 'login', component: LoginComponent},
     {
       path: 'employees',
@@ -20,7 +22,7 @@ const routes: Routes = [
         expectedRole: 'manager'
       }
     },
-    { path: '', redirectTo: 'home', pathMatch: 'full'}
+    { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 
 @NgModule({

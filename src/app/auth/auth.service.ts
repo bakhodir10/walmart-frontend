@@ -1,12 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {AuthModel} from './auth.model';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
+
+  url = 'http://localhost:3000/auth/';
 
   constructor(private http: HttpClient, public router: Router) {
   }
@@ -21,7 +24,7 @@ export class AuthService {
   }
 
   public login(user): void {
-    this.http.post('http://localhost:3000/auth/login', user).subscribe(res => {
+    this.http.post<AuthModel>(`${this.url}/login`, user).subscribe(res => {
       console.log(res);
       localStorage.setItem('token', res.token);
       this.router.navigate(['home']);
@@ -29,7 +32,7 @@ export class AuthService {
   }
 
   public logout(): void {
-    this.http.post('http://localhost:3000/authlogout', {}).subscribe(res => {
+    this.http.post<AuthModel>(`${this.url}/logout`, {}).subscribe(res => {
       console.log(res);
       localStorage.removeItem('token');
       this.router.navigate(['home']);
