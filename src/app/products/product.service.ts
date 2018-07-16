@@ -10,7 +10,7 @@ import {Product} from './product.model';
 
 export class ProductService {
 
-  url = 'http://localhost:3000/products';
+  url = 'http://localhost:3000/api/products';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

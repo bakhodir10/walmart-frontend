@@ -3,10 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
-import { AuthGuardService as AuthGuard, AuthGuardService } from './auth/auth-guard.service';
-import { RoleGuardService as RoleGuard, RoleGuardService } from './auth/role-guard.service';
+import {RoleGuardService} from './auth/role-guard.service';
 import { HomeComponent } from './home/home.component';
-import { AuthService } from './auth/auth.service';
 import { SignUpComponent } from './signUp/sign-up.component';
 
 const routes: Routes = [
@@ -17,7 +15,7 @@ const routes: Routes = [
     {
       path: 'employees',
       component: EmployeeComponent,
-      canActivate: [RoleGuard],
+      canActivate: [RoleGuardService],
       data: {
         expectedRole: 'manager'
       }
@@ -27,7 +25,6 @@ const routes: Routes = [
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule],
-    providers: [AuthGuardService, AuthService, RoleGuardService],
+    exports: [RouterModule]
 })
 export class AppRouters { }

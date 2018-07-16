@@ -9,7 +9,7 @@ import {of} from 'rxjs/internal/observable/of';
 })
 export class UserService {
 
-  url = 'http://localhost:3000/users';
+  url = 'http://localhost:3000/api/users';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})

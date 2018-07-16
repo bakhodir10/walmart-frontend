@@ -9,7 +9,7 @@ import {AuthModel} from './auth.model';
 
 export class AuthService {
 
-  url = 'http://localhost:3000/auth/';
+  url = 'http://localhost:3000/api/auth/';
 
   constructor(private http: HttpClient, public router: Router) {
   }
