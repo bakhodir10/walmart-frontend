@@ -10,15 +10,14 @@
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
            </div>
-          <input [(ngModel)]="name" name="name" class="form-control" placeholder="Full name" type="text" required #na="ngModel">
-          <div [hidden]="na.valid || na.pristine" class="alert callout">Name is required</div>
+          <input [(ngModel)]="user.name" name="name" class="form-control" placeholder="Full name" type="text" required #na="ngModel">
+        
         </div> 
       <div class="form-group input-group">
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
            </div>
-          <input [(ngModel)]="email" name="email" class="form-control" placeholder="Enter Email address" type="text" required #em="ngModel">
-           <div [hidden]="em.valid || em.pristine" class="alert callout">Email is required</div>
+          <input [(ngModel)]="user.email" name="email" class="form-control" placeholder="Enter Email address" type="text" required #em="ngModel">
         </div> 
      
       <div class="form-group input-group">
@@ -26,31 +25,26 @@
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div> 
           <input class="form-control" placeholder="Create password" type="password" 
-              [(ngModel)]="password1" name="password1" required #pwd1="ngModel">
-              <div [hidden]="pwd1.valid || pwd1.pristine" class="alert callout">
-                    Password required
-                  </div>
-            </div> <!-- form-group// -->
-      <div class="form-group input-group">
+              [(ngModel)]="user.password" name="password" required #pwd1="ngModel">
+            </div> 
+      <!-- <div class="form-group input-group">
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
           </div>
           <input class="form-control" placeholder="Repeat password" type="password"
           [(ngModel)]="password2" name="password2" required #pwd2="ngModel">
-          <div [hidden]="pwd2.valid || pwd2.pristine" class="alert callout">
-                Confirm Password
-              </div>
-        </div>                                    
+         
+        </div>                                     -->
       <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-      </div> <!-- form-group// -->      
+          <button type="submit" (click)="signUp()"class="btn btn-primary btn-block"> Create Account  </button>
+      </div> 
                                                                    
   </form>
   </article>
-  </div> <!-- card.// -->
+  </div> 
   
   </div> 
-  <!--container end.//-->
+
   
   <br><br>
   <article class="bg-secondary mb-3">  

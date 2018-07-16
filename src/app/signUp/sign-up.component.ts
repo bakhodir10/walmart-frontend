@@ -1,6 +1,9 @@
+
 import { Component } from '@angular/core';
-//import {UserService} from '../adminShared/user.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user/user.service';
+import { User } from '../user/user.model';
+
 
 
 @Component({
@@ -11,4 +14,15 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
  
   
- }
+  constructor(private userService: UserService,private user:User){}
+   
+  signUp(){
+     
+    this.user.role="customer";
+    
+      console.log(this.user);
+       this.userService.saveOne(this.user);
+     }
+  }
+  
+
