@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {Product} from "../products/product.model";
-import {AuthModel} from "./auth.model";
+import {AuthModel} from './auth.model';
 
 @Injectable({
   providedIn: 'root'
