@@ -36,7 +36,7 @@ export class UserService {
   }
 
   deleteOne(user: User) {
-    const id = typeof user === 'number' ? user : user.id;
+    const id = typeof user === 'number' ? user : user._id;
     const newUrl = `${this.url}/${id}`;
     return this.httpClient.delete<User>(newUrl, this.httpOptions);
   }

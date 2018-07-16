@@ -7,8 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { NavComponent } from './shared/navbar.component';
 import { SignUpComponent } from './signUp/sign-up.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {MaterialModule} from './material.module';
 import {AppRouters} from './app.routes';
 import {AppComponent} from './app.component';
 import {ProductsComponent} from './products/products.component';
@@ -38,8 +36,6 @@ import { User } from './user/user.model';
     FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
-    FlexLayoutModule,
-    MaterialModule,
     AppRouters,
     HttpClientModule
   ],

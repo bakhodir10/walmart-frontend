@@ -37,7 +37,7 @@ export class ProductService {
   }
 
   deleteOne(product: Product) {
-    const id = typeof product === 'number' ? product : product.id;
+    const id = typeof product === 'number' ? product : product._id;
     const newUrl = `${this.url}/${id}`;
     return this.httpClient.delete<Product>(newUrl, this.httpOptions);
   }
