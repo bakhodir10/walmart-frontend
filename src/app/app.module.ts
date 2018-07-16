@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { RoleGuardService } from './auth/role-guard.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './shared/navbar.component';
+import { SignUpComponent } from './signUp/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,13 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     EmployeeComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NavComponent,
+    SignUpComponent
+
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     FlexLayoutModule,

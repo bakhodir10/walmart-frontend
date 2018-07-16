@@ -1,0 +1,59 @@
+<div class="container">
+   
+  <hr>
+  <div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+      <h4 class="card-title mt-3 text-center">Create Account</h4>
+  
+      <form>
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+           </div>
+          <input [(ngModel)]="name" name="name" class="form-control" placeholder="Full name" type="text" required #na="ngModel">
+          <div [hidden]="na.valid || na.pristine" class="alert callout">Name is required</div>
+        </div> 
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+           </div>
+          <input [(ngModel)]="email" name="email" class="form-control" placeholder="Enter Email address" type="text" required #em="ngModel">
+           <div [hidden]="em.valid || em.pristine" class="alert callout">Email is required</div>
+        </div> 
+     
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div> 
+          <input class="form-control" placeholder="Create password" type="password" 
+              [(ngModel)]="password1" name="password1" required #pwd1="ngModel">
+              <div [hidden]="pwd1.valid || pwd1.pristine" class="alert callout">
+                    Password required
+                  </div>
+            </div> <!-- form-group// -->
+      <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input class="form-control" placeholder="Repeat password" type="password"
+          [(ngModel)]="password2" name="password2" required #pwd2="ngModel">
+          <div [hidden]="pwd2.valid || pwd2.pristine" class="alert callout">
+                Confirm Password
+              </div>
+        </div>                                    
+      <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+      </div> <!-- form-group// -->      
+                                                                   
+  </form>
+  </article>
+  </div> <!-- card.// -->
+  
+  </div> 
+  <!--container end.//-->
+  
+  <br><br>
+  <article class="bg-secondary mb-3">  
+
+  <br><br>
+  </article>
