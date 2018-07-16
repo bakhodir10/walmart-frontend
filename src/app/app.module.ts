@@ -14,7 +14,7 @@ import { AuthGuardService } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { RoleGuardService } from './auth/role-guard.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthInterceptor } from './auth/aut.interceptor.service';
+import { AuthInterceptor } from './auth/auth.interceptor.service';
 
 @NgModule({
   declarations: [
