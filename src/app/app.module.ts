@@ -16,11 +16,12 @@ import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './auth/auth-guard.service';
 import {AuthService} from './auth/auth.service';
 import {RoleGuardService} from './auth/role-guard.service';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './auth/auth.interceptor.service';
 import {UserService} from './user/user.service';
 import {ProductService} from './products/product.service';
 import { User } from './user/user.model';
+import { JwtInterceptor } from './auth/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { User } from './user/user.model';
     HttpClientModule
   ],
   providers: [
-    AuthInterceptor,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     AuthService,
     AuthGuardService,
     RoleGuardService,
