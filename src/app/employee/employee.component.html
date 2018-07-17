@@ -1,50 +1,36 @@
 <div class='card'>
   <div class='card-header'>
-    {{pageTitle}}
+    Employees Information
   </div>
   <div class='card-body'>
     <div class='row'>
-      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-2'>Filter by: Name</div>
       <div class='col-md-4'>
         <input type='text' />
       </div>
-    </div>
-    <div class='row'>
-      <div class='col-md-6'>
-        <h4>Filtered by: {{listFilter}}</h4>
+      <div class='col-md-8'>
+        <button class='btn btn-primary'>
+          Create Employee
+        </button>
       </div>
     </div>
     <div class='table-responsive'>
       <table class='table'>
         <thead>
-          <tr>
-            <th>
-              <button class='btn btn-primary'>
-                Image
-              </button>
-            </th>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Available</th>
-            <th>Price</th>
-            <th>5 Star Rating</th>
+          <tr>          
+            <th>Name</th>
+            <th>Email</th>
+            <th *ngIf="user.role != 'manager'">Role</th>
+            <th>Likes</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let employee of employees">
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.role}}</td>
             <td>
-              <img>
-            </td>
-            <td>
-              <a>
-
-              </a>
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-
+              <button (click)="showLikes(employee._id)"></button>
             </td>
           </tr>
         </tbody>
