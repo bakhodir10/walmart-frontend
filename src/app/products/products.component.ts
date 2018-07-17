@@ -10,47 +10,32 @@ import {Product} from './product.model';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  // products: Observable<Product>;
+  products: Array<Product>;
   pageTitle: string = 'Product List';
   errorMessage: string;
   constructor(private productService: ProductService) {}
 
+  ngOnInit(): void {
+    this.loadProducts();
+  }
 
   loadProducts(){
-    this.productService.getList().subscribe(res => console.log(res));
+    this.productService.getList().subscribe(res => {
+      console.log(res);
+      this.products = res
+    });
   }
-
-  _listFilter: string;
-
-  get listFilter(): string {
-    return this._listFilter;
-  }
-  set listFilter(value: string) {
-    this._listFilter = value;
-    this.filteredProducts = this.listFilter ? this.perfromFilter(this.listFilter) : this.products;
-  }
-
-  filteredProducts: Product[];
-  products: Product[];
 
   onRatingClicked(message:string):void{
     this.pageTitle = 'Product List: ' + message;
   }
 
-  perfromFilter(filterBy: string): Product[]{
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: Product) =>
-      product.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  delete(id){
+    if (confirm('Would you like to remove it')){
+        this.productService.deleteOne(id).subscribe(res => {
+          window.alert('Successfully deleted');
+        });
+    }
   }
 
-  ngOnInit(): void {
-    this.productService.getList().subscribe(
-      products => {
-        console.log(products);
-        this.products = products;
-        this.filteredProducts = this.products;
-      },
-      error => this.errorMessage = <any>error
-    );
-  }
 }
