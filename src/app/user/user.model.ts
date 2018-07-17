@@ -3,6 +3,7 @@ export class User {
   name: string;
   email: string;
   role: string;
+  password: string;
   likes: {
     feedback_id: string,
     product_name: string,

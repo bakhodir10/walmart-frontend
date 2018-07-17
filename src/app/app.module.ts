@@ -23,6 +23,8 @@ import {ProductService} from './products/product.service';
 import { User } from './user/user.model';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { StarComponent } from './shared/star.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HomeComponent,
     LoginComponent,
     NavComponent,
-    SignUpComponent
+    SignUpComponent,
+    StarComponent
   ],
   imports: [
     FormsModule,
@@ -41,7 +44,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserAnimationsModule,
     AppRouters,
     HttpClientModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgbModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
