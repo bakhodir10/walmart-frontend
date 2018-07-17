@@ -4,5 +4,4 @@ export class Product {
   price: number;
   expire_date: Date;
   quantity: number;
-  
 }

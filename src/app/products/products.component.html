@@ -6,7 +6,8 @@
     <div class='row'>
       <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
-        <input type='text' />
+        <input type='text' 
+              [(ngModel)]='listFilter' />
       </div>
     </div>
     <div class='row'>
@@ -20,31 +21,30 @@
           <tr>
             <th>
               <button class='btn btn-primary'>
-                Image
+                Add Product
               </button>
             </th>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Available</th>
+            <th>Product Name</th>
             <th>Price</th>
+            <th>Expire Date</th>
+            <th>Quantity</th>
             <th>5 Star Rating</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor='let product of filteredProducts'>
             <td>
               <img>
             </td>
             <td>
-              <a>
-
+              <a [routerLink]="['/products',product.productId]">
+                  {{product.name}}
               </a>
             </td>
+            <td>{{product.price}}</td>
+            <td>{{product.expire_date}}</td>
+            <td>{{product.quantity}}</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            </td>
           </tr>
         </tbody>
       </table>

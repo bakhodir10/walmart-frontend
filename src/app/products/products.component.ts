@@ -15,9 +15,6 @@ export class ProductsComponent implements OnInit {
   errorMessage: string;
   constructor(private productService: ProductService) {}
 
-  ngOnInit() {
-    this.loadProducts();
-  }
 
   loadProducts(){
     this.productService.getList().subscribe(res => console.log(res));
@@ -46,9 +43,10 @@ export class ProductsComponent implements OnInit {
       product.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
-  OnInit(): void {
+  ngOnInit(): void {
     this.productService.getList().subscribe(
       products => {
+        console.log(products);
         this.products = products;
         this.filteredProducts = this.products;
       },
