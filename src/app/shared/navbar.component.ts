@@ -14,26 +14,31 @@ import { User } from '../user/user.model';
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#" *ngIf="currentUser == 'null' || currentUser == 'undefined'">Sign Up</a>
+            <a [routerLink]="['employees']" class="nav-link" href="#">Employee</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" *ngIf="currentUser == 'null' || currentUser == 'undefined' ">Log In</a>
-            <a class="nav-link" href="#" *ngIf="currentUser != 'null' || currentUser != 'undefined'">{{currentUser.email}}</a>
+            <a [routerLink]="['signup']" class="nav-link" href="#" *ngIf = "currentUser.role =='customer'">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['login']" class="nav-link" href="#" *ngIf = "currentUser.role =='customer'">Log In</a>
+            <a  class="nav-link"  *ngIf = "currentUser.role =='employee'">{{currentUser.email}}</a>
+            <a [routerLink]="['login']" class="nav-link" href="#" *ngIf = "currentUser.role =='employee'">Log Out</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
     `,
-    styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css']
 })
 export class NavComponent {
+
 
   currentUser: User;
   constructor(private authService: AuthService) {
   }
   ngOnInit() {
-    this.currentUser=this.authService.getCurrentUser();
+    this.currentUser = this.authService.getCurrentUser();
     console.log(this.currentUser);
   }
 }
