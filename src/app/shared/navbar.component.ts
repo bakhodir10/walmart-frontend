@@ -14,22 +14,26 @@ import { User } from '../user/user.model';
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a [routerLink]="['home']" class="nav-link" href="#">Home</a>
+            <a [routerLink]="['home']" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['products']" class="nav-link" href="#">Products</a>
+            <a [routerLink]="['products']" class="nav-link" >Products</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['employees']" class="nav-link" href="#">Employee</a>
+            <a [routerLink]="['employees']" class="nav-link" *ngIf = "currentUser.role != 'employee'">Employee</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['signup']" class="nav-link" href="#" *ngIf = "currentUser.role =='customer'">Sign Up</a>
+            <a [routerLink]="['signup']" class="nav-link" href="#" *ngIf = "currentUser == 'undefined'">Sign Up</a>
           </li>
           <li class="nav-item">
-            <a [routerLink]="['login']" class="nav-link" href="#" *ngIf = "currentUser.role =='customer'">Log In</a>
-            <a  class="nav-link"  *ngIf = "currentUser.role =='employee'">{{currentUser.email}}</a>
-            <a [routerLink]="['login']" class="nav-link" href="#" *ngIf = "currentUser.role =='employee'">Log Out</a>
+            <a [routerLink]="['login']" class="nav-link" href="#" *ngIf = "currentUser == 'undefined'">Log In</a>
           </li>
+          <li class="nav-item">
+          <a  class="nav-link"  *ngIf = "currentUser != 'undefined'">{{currentUser.email}}</a>
+        </li>
+        <li class="nav-item">
+        <a [routerLink]="['login']" class="nav-link" *ngIf = "currentUser != 'undefined'">Log Out</a>
+      </li>
         </ul>
       </div>
     </div>
