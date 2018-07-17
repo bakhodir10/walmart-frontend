@@ -41,7 +41,7 @@ export class UserService {
   }
 
   deleteOne(user: User) {
-    const id = typeof user === 'number' ? user : user._id;
+    const id = typeof user === 'string' ? user : user._id;
     const newUrl = `${this.url}/${id}`;
     return this.httpClient.delete<User>(newUrl, this.httpOptions);
   }
@@ -51,5 +51,9 @@ export class UserService {
       return of([]);  // if not search term, return empty hero array.
     }
     return this.httpClient.get<User[]>(`${this.url}/?name=${name}`);
+  }
+
+  notify(): any {
+    return this.httpClient.get(this.url + '/notify');
   }
 }

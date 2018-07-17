@@ -5,33 +5,34 @@
   <div class='card-body'>
     <div class='row'>
       <div class='col-md-2'>Filter by: Name</div>
-      <div class='col-md-4'>
-        <input type='text' />
+      <div class='col-md-2'>
+        <input type='text' [(ngModel)]="term" name="term"/>
       </div>
-      <div class='col-md-8'>
-        <button class='btn btn-primary'>
-          Create Employee
-        </button>
+      <div class='col-md-6'>
+        <button class='btn btn-primary'> Create Employee </button>
+      </div>
+      <div class='col-md-2'>
+        <button class='btn btn-primary' (click)= "notify()"> Send Notification </button>
       </div>
     </div>
     <div class='table-responsive'>
       <table class='table'>
         <thead>
-          <tr>          
+          <tr>
             <th>Name</th>
             <th>Email</th>
-            <th *ngIf="user.role != 'manager'">Role</th>
-            <th>Likes</th>
+            <th>Role</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let employee of employees">
+          <tr *ngFor="let employee of employees| filter: term">
             <td>{{employee.name}}</td>
             <td>{{employee.email}}</td>
             <td>{{employee.role}}</td>
-            <td>
-              <button (click)="showLikes(employee._id)"></button>
-            </td>
+            <td><button type="button" class="btn btn-info">Edit</button></td>
+            <td><button type="button" class="btn btn-danger" (click) = "delete(employee._id)">Delete</button></td>
           </tr>
         </tbody>
       </table>

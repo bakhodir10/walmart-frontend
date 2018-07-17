@@ -22,6 +22,7 @@ import {UserService} from './user/user.service';
 import {ProductService} from './products/product.service';
 import { User } from './user/user.model';
 import { JwtInterceptor } from './auth/jwt.interceptor';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
     BrowserModule,
     BrowserAnimationsModule,
     AppRouters,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
