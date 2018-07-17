@@ -23,6 +23,7 @@ import {ProductService} from './products/product.service';
 import { User } from './user/user.model';
 import { JwtInterceptor } from './auth/jwt.interceptor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { StarComponent } from './shared/star.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HomeComponent,
     LoginComponent,
     NavComponent,
-    SignUpComponent
+    SignUpComponent,
+    StarComponent
   ],
   imports: [
     FormsModule,

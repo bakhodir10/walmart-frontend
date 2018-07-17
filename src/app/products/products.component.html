@@ -37,10 +37,10 @@
                   {{product.name}}
               </a>
             </td>
-            <td>{{product.price}}</td>
+            <td>{{product.price | currency:'USD':'symbol':'1.2-2' }}</td>
             <td>{{product.expire_date}}</td>
             <td>{{product.quantity}}</td>
-            <td></td>
+            <td><pm-star [rating]='product.rate' (ratingClicked)='onRatingClicked($event)'></pm-star></td>
             <td><button type="button" class="btn btn-danger" (click) = "delete(product._id)">Delete</button></td>
           </tr>
         </tbody>
