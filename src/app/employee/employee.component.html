@@ -20,6 +20,7 @@
         <table class='table'>
           <thead>
             <tr>
+              <th>Index</th>
               <th>Name</th>
               <th>Email</th>
               <th>Role</th>
@@ -28,23 +29,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let employee of employees| filter: term">
+            <tr *ngFor="let employee of employees| filter: term; let i = index" [attr.data-index]="i">
+              <td>{{i + 1}}</td>
               <td>{{employee.name}}</td>
               <td>{{employee.email}}</td>
               <td>{{employee.role}}</td>
-              <td><button type="button" class="btn btn-info" (click) = "edit()">Edit</button></td>
+              <td><button type="button" class="btn btn-info" (click) = "edit(employee._id); open(content)">Edit</button></td>
               <td><button type="button" class="btn btn-danger" (click) = "delete(employee._id)">Delete</button></td>
             </tr>
           </tbody>
         </table>
       </div>
-  
+
     </div>
-  
+
   </div>
-  
+
   <!-- modal -->
-  
+
   <ng-template #content let-c="close" let-d="dismiss">
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Employee information</h4>
@@ -70,7 +72,7 @@
         <div class="form-group">
             <label for="role">Role</label>
           <select [(ngModel)]="newEm.role" name="role" class="form-control form-control-sm" id="role">
-            <option *ngFor="let r of roles">{{r.name}}</option>           
+            <option *ngFor="let r of roles">{{r.name}}</option>
           </select>
         </div>
       </form>
@@ -79,5 +81,3 @@
       <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
     </div>
   </ng-template>
-  
-  
