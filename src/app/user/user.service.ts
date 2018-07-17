@@ -9,7 +9,7 @@ import {of} from 'rxjs/internal/observable/of';
 })
 export class UserService {
 
-  url = 'http://localhost:3000/api/users';
+  url ='http://localhost:3000/api/users';
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -28,11 +28,16 @@ export class UserService {
   }
 
   updateOne(user: User): Observable<any> {
-    return this.httpClient.put(this.url, user, this.httpOptions);
+    return this.httpClient.put('http://localhost:3000/api/users', user, this.httpOptions);
   }
 
   saveOne(user: User) {
-    return this.httpClient.post<User>(this.url, user, this.httpOptions);
+    console.log(user);
+    this.httpClient.post<User>(this.url, user , this.httpOptions).subscribe(
+      result => { 
+        console.log(result);  
+      }, 
+      error => console.log('There was an error: ', error));
   }
 
   deleteOne(user: User) {
