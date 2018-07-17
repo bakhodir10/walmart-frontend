@@ -3,4 +3,11 @@ export class User {
   name: string;
   email: string;
   role: string;
+  likes: {
+    feedback_id: string,
+    product_name: string,
+    price: number,
+    expire_date,
+    rate: number
+  };
 }

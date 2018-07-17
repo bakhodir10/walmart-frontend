@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {AuthModel} from './auth.model';
-
+import decode from 'jwt-decode';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +16,12 @@ export class AuthService {
 
   public getToken(): string {
     return localStorage.getItem('token');
+  }
+
+  public getCurrentUser(){
+    const token = localStorage.getItem('token');
+    const tokenPayload = decode(token);
+    return tokenPayload.user;
   }
 
   public isAuthenticated(): boolean {
