@@ -18,7 +18,7 @@ export class EmployeeComponent implements OnInit {
     this.user = this.authService.getCurrentUser();
     console.log(this.user);
   }
-  
+
   loadEmployees(){
     this.userService.getList().subscribe(res => {
       this.employees = res;
@@ -26,8 +26,19 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  showLikes(_id){
+  showLikes(_id){}
 
+  notify(){
+    this.userService.notify().subscribe(res => {
+      window.alert('successfully sent!');
+    });
   }
 
+  delete(id){
+    if (confirm('Would you like to remove it')){
+        this.userService.deleteOne(id).subscribe(res => {
+          window.alert('Successfully deleted');
+        });
+    }
+  }
 }
