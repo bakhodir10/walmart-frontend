@@ -1,83 +1,88 @@
 <navi-bar></navi-bar>
 <div class='card'>
-    <div class='card-header'>
-      Employees Information
-    </div>
-    <div class='card-body'>
-      <div class='row'>
-        <div class='col-md-2'>Filter by: Name</div>
-        <div class='col-md-2'>
-          <input type='text' [(ngModel)]="term" name="term"/>
-        </div>
-        <div class='col-md-6'>
-          <button class='btn btn-primary'(click)="open(content)"> Create Employee </button>
-        </div>
-        <div class='col-md-2'>
-          <button class='btn btn-primary' (click)= "notify()"> Send Notification </button>
-        </div>
-      </div>
-      <div class='table-responsive'>
-        <table class='table'>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let employee of employees| filter: term">
-              <td>{{employee.name}}</td>
-              <td>{{employee.email}}</td>
-              <td>{{employee.role}}</td>
-              <td><button type="button" class="btn btn-info" (click) = "edit()">Edit</button></td>
-              <td><button type="button" class="btn btn-danger" (click) = "delete(employee._id)">Delete</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-  
-    </div>
-  
+  <div class='card-header'>
+    Employees Information
   </div>
-  
-  <!-- modal -->
-  
-  <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Employee information</h4>
-      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by: Name</div>
+      <div class='col-md-2'>
+        <input type='text' [(ngModel)]="term" name="term" />
+      </div>
+      <div class='col-md-6'>
+        <button class='btn btn-primary' (click)="open(content)"> Create Employee </button>
+      </div>
+      <div class='col-md-2'>
+        <button class='btn btn-primary' (click)="notify()"> Send Notification </button>
+      </div>
     </div>
-    <div class="modal-body">
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" name="email" [(ngModel)] = "newEm.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">Be careful!. It is used as a login</small>
-        </div>
-        <div class="form-group">
-            <label for="name">Password</label>
-            <input type="password" name="password" [(ngModel)] = "newEm.password" class="form-control" id="password" placeholder="Enter Password">
-          </div>
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" name="name" [(ngModel)] = "newEm.name" class="form-control" id="name" placeholder="Enter name">
-        </div>
-        <div class="form-group">
-            <label for="role">Role</label>
-          <select [(ngModel)]="newEm.role" name="role" class="form-control form-control-sm" id="role">
-            <option *ngFor="let r of roles">{{r.name}}</option>           
-          </select>
-        </div>
-      </form>
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees| filter: term; let i = index" [attr.data-index]="i">
+            <td>{{i + 1}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.role}}</td>
+            <td>
+              <button type="button" class="btn btn-info" (click)="edit(employee._id); open(content)">Edit</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="delete(employee._id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
-    </div>
-  </ng-template>
-  
-  
+
+  </div>
+
+</div>
+
+<!-- modal -->
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Employee information</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" [(ngModel)]="newEm.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">Be careful!. It is used as a login</small>
+      </div>
+      <div class="form-group">
+        <label for="name">Password</label>
+        <input type="password" name="password" [(ngModel)]="newEm.password" class="form-control" id="password" placeholder="Enter Password">
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" [(ngModel)]="newEm.name" class="form-control" id="name" placeholder="Enter name">
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select [(ngModel)]="newEm.role" name="role" class="form-control form-control-sm" id="role">
+          <option *ngFor="let r of roles">{{r.name}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+  </div>
+</ng-template>

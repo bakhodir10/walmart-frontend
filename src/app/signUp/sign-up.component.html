@@ -1,54 +1,56 @@
 <navi-bar></navi-bar>
 <div class="container">
-   
-  <hr>
-  <div class="card bg-light">
-  <article class="card-body mx-auto" style="max-width: 400px;">
-      <h4 class="card-title mt-3 text-center">Create Account</h4>
-  
-      <form>
-      <div class="form-group input-group">
-          <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-           </div>
-          <input [(ngModel)]="user.name" name="name" class="form-control" placeholder="Full name" type="text" required #na="ngModel">
-        
-        </div> 
-      <div class="form-group input-group">
-          <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-           </div>
-          <input [(ngModel)]="user.email" name="email" class="form-control" placeholder="Enter Email address" type="text" required #em="ngModel">
-        </div> 
-     
-      <div class="form-group input-group">
-          <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-          </div> 
-          <input class="form-control" placeholder="Create password" type="password" 
-              [(ngModel)]="user.password" name="password" required #pwd1="ngModel">
-            </div> 
-      <!-- <div class="form-group input-group">
-          <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-          </div>
-          <input class="form-control" placeholder="Repeat password" type="password"
-          [(ngModel)]="password2" name="password2" required #pwd2="ngModel">
-         
-        </div>                                     -->
-      <div class="form-group">
-          <button type="submit" (click)="signUp()"class="btn btn-primary btn-block"> Create Account  </button>
-      </div> 
-                                                                   
-  </form>
-  </article>
-  </div> 
-  
-  </div> 
 
-  
-  <br><br>
-  <article class="bg-secondary mb-3">  
+    <hr>
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Create Account</h4>
 
-  <br><br>
-  </article>
+            <form>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                    <input [(ngModel)]="user.name" name="name" class="form-control" placeholder="Full name" type="text" required #na="ngModel">
+
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                    <input [(ngModel)]="user.email" name="email" class="form-control" placeholder="Enter Email address" type="text" required
+                        #em="ngModel">
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                    <input class="form-control" placeholder="Create password" type="password" [(ngModel)]="user.password" name="password" required
+                        #pwd1="ngModel">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" (click)="signUp()" class="btn btn-primary btn-block"> Create Account </button>
+                </div>
+
+            </form>
+        </article>
+    </div>
+
+</div>
+
+
+<br>
+<br>
+<article class="bg-secondary mb-3">
+
+    <br>
+    <br>
+</article>

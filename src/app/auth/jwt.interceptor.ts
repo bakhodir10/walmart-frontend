@@ -11,7 +11,7 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(public auth: AuthService, public router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    
+
     return next.handle(request).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse) {
         return event;
@@ -19,6 +19,7 @@ export class JwtInterceptor implements HttpInterceptor {
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {
         if (err.status === 403) {
+          localStorage.removeItem('token');
           this.router.navigate(['login']);
         }
       }

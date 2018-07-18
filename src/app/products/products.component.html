@@ -7,17 +7,16 @@
     <div class='row'>
       <div class='col-md-2'>Filter by:</div>
       <div class='col-md-2'>
-        <input type='text' 
-              [(ngModel)]='term' />
+        <input type='text' [(ngModel)]='term' />
       </div>
       <div class='col-md-6'>
         <button class='btn btn-primary'>
           Add Product
         </button>
       </div>
-      
+
     </div>
-       
+
     <div class='table-responsive'>
       <table class='table'>
         <thead>
@@ -32,17 +31,21 @@
         </thead>
         <tbody>
           <tr *ngFor='let product of products | filter:term'>
-           
+
             <td>
-              <a [routerLink]="['/products',product.productId]">
-                  {{product.name}}
+              <a [routerLink]="['/products',product._id]">
+                {{product.name}}
               </a>
             </td>
             <td>{{product.price | currency:'USD':'symbol':'1.2-2' }}</td>
             <td>{{product.expire_date}}</td>
             <td>{{product.quantity}}</td>
-            <td><pm-star [rating]='product.rate' (ratingClicked)='onRatingClicked($event)'></pm-star></td>
-            <td><button type="button" class="btn btn-danger" (click) = "delete(product._id)">Delete</button></td>
+            <td>
+              <pm-star [rating]='product.rate' (ratingClicked)='onRatingClicked($event)'></pm-star>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger" (click)="delete(product._id)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
