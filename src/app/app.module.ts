@@ -25,6 +25,7 @@ import { JwtInterceptor } from './auth/jwt.interceptor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { StarComponent } from './shared/star.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     NavComponent,
     SignUpComponent,
-    StarComponent
+    StarComponent,
+    FeedbackComponent
   ],
   imports: [
     FormsModule,
