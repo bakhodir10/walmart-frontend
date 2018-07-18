@@ -20,6 +20,9 @@ export class AuthService {
 
   public getCurrentUser(){
     const token = localStorage.getItem('token');
+    if (this.getToken() == undefined) {
+        return {};
+    }
     const tokenPayload = decode(token);
     return tokenPayload.user;
   }
