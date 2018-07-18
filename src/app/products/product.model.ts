@@ -5,4 +5,7 @@ export class Product {
   expire_date: Date;
   quantity: number;
   rate: number;
+  feedback: [
+    {user_id: string, rate: number, comment: string, comment_date: Date}
+  ]
 }

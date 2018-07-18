@@ -1,57 +1,47 @@
 <navi-bar></navi-bar>
 <div class='card'>
-    <div class='card-header'>
-        {{pageTitle}}
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-2'>
+        <input type='text' [(ngModel)]='term' />
+      </div>
     </div>
-    <div class='card-body'>
-        <div class='row'>
-            <div class='col-md-2'>Filter by:</div>
-            <div class='col-md-4'>
-                <input type='text' />
-            </div>
-        </div>
-        <div class='row'>
-            <div class='col-md-6'>
-                <h4>Filtered by: {{listFilter}}</h4>
-            </div>
-        </div>
-        <div class='table-responsive'>
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th>
-                            <button class='btn btn-primary'>
-                                Image
-                            </button>
-                        </th>
-                        <th>Product</th>
-                        <th>Code</th>
-                        <th>Available</th>
-                        <th>Price</th>
-                        <th>5 Star Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img>
-                        </td>
-                        <td>
-                            <a>
 
-                            </a>
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>
+    <div class='table-responsive'>
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Expire Date</th>
+            <th>Quantity</th>
+            <th>5 Star Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let product of products | filter:term'>
 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+                <td>
+                    <a *ngIf = "currentUser.role == 'customer'" [routerLink]="['/products',product._id]" class="badge badge-primary">comments</a>
+                    <a class="badge">
+                          {{product.name}}
+                    </a>
+                </td>
+            <td>{{product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+            <td>{{product.expire_date}}</td>
+            <td>{{product.quantity}}</td>
+            <td>
+              <pm-star [rating]='product.rate'></pm-star>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+  </div>
 
 </div>

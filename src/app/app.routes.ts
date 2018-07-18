@@ -10,8 +10,23 @@ import { ProductDetailComponent } from './products/product-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/:_id', component: ProductDetailComponent },
+  { 
+    path: 'products', 
+    component: ProductsComponent,
+    canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'employee'
+        }
+  },
+  { 
+    path: 'products/:_id', 
+    component: ProductDetailComponent, 
+    canActivate: [RoleGuardService],
+    data: {
+      expectedRole: 'customer'
+        }
+  
+  },
   { path: 'signup', component: SignUpComponent },
   { path: 'login', component: LoginComponent },
   {

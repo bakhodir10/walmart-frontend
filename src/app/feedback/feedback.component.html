@@ -1,11 +1,16 @@
-<div style="width: 27rem;" class="card">
-  <div class="card-header">
-    user name:
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">comment:</h5>
-    <p class="card-text">comment_date:</p>
-    <span class="label label-default">rate: </span>
-    <a class="btn btn-primary"></a>
-  </div>
-</div>
+
+<ul *ngFor='let feed of feedback'>
+  <li>
+      <div style="width: 27rem;" class="card">
+          <div class="card-header">
+            user id: {{feed.user_id}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">comment: {{feed.comment}}</h5>
+            <p class="card-text">comment_date: {{feed.comment_date}}</p>
+            <span class="label label-default">rate: {{feed.rate}}</span>
+            <a class="btn btn-primary"></a>
+          </div>
+        </div>
+  </li>
+</ul>

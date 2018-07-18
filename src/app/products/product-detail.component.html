@@ -1,3 +1,4 @@
+<div class="container">
 <div class='card'>
   <div class='card'>
     <div class='card-header'>
@@ -16,17 +17,17 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Feedback</label>
         <br/>
-        <textarea class='card-body' rows="5" cols="50" maxlength="25">Enter feedback here...</textarea>
+        <textarea name="feedback" [(ngModel)] = "newfeedback.comment" class='card-body' rows="5" cols="50" maxlength="25">Enter feedback here...</textarea>
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Rate:</label>
-        <input type="number" max="5" min="0">
+        <label   for="exampleInputPassword1">Rate:</label>
+        <input name="rate" [(ngModel)] = "newfeedback.rate" type="number" max="5" min="0">
       </div>
-      <button type="submit" class="btn btn-primary">Submit Feedback</button>
+      <button type="submit" (click)='submit()' class="btn btn-primary">Submit Feedback</button>
     </form>
     <br/>
 
-    <app-feedback></app-feedback>
+    <app-feedback [feedback] = "product.feedback"></app-feedback>
 
     <div class='card-footer'>
       <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
@@ -34,4 +35,5 @@
       </button>
     </div>
   </div>
+</div>
 </div>

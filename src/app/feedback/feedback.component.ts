@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Feedback } from './feedback.model';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProductService } from '../products/product.service';
+import { Product } from '../products/product.model';
 
 @Component({
   selector: 'app-feedback',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-
-  constructor() { }
+ 
+  @Input() feedback: Array<Feedback>;
 
   ngOnInit() {
+    console.log('come');
+    console.log('come');
+    console.log(this.feedback);
   }
-
 }

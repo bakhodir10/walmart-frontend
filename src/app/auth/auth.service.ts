@@ -45,7 +45,7 @@ export class AuthService {
   public logout(): void {
     this.http.post<AuthModel>(`${this.url}/logout`, {}).subscribe(res => {
       console.log(res);
-      localStorage.removeItem('token');
+      window.localStorage.removeItem('token');
       this.router.navigate(['home']);
     });
   }
