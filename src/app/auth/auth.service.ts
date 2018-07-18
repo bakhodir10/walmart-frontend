@@ -24,7 +24,9 @@ export class AuthService {
         return {};
     }
     const tokenPayload = decode(token);
-    return tokenPayload.user;
+    if(tokenPayload.user != {}) return tokenPayload.user;
+
+    return {};
   }
 
   public isAuthenticated(): boolean {

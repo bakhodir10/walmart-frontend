@@ -5,7 +5,7 @@ import { User } from '../user/user.model';
 @Component({
   selector: 'navi-bar',
   template: `
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container">
       <a class="navbar-brand" href="#">Walmart App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,16 +29,17 @@ import { User } from '../user/user.model';
             <a [routerLink]="['login']" class="nav-link" href="#" *ngIf = "currentUser == 'undefined'">Log In</a>
           </li>
           <li class="nav-item">
-          <a  class="nav-link"  *ngIf = "currentUser != 'undefined'">{{currentUser.email}}</a>
+          <a  class="nav-link"  *ngIf = "currentUser != 'undefined'">{{currentUser.name}}</a>
         </li>
         <li class="nav-item">
-        <a [routerLink]="['login']" class="nav-link" *ngIf = "currentUser != 'undefined'">Log Out</a>
+        <a [routerLink]="['login']" (click)="logout()" class="nav-link" *ngIf = "currentUser != 'undefined'">Log Out</a>
       </li>
         </ul>
       </div>
     </div>
   </nav>
     `,
+
   styleUrls: ['./navbar.component.css']
 })
 export class NavComponent {
@@ -49,7 +50,18 @@ export class NavComponent {
   }
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUser();
+    console.log("hksjdf;aj");
     console.log(this.currentUser);
   }
+
+  // login() {
+  //   // console.log(this.user);
+  //   this.authService.login(this.currentUser);
+
+  // }
+
+  // logout() {
+  //   this.authService.logout();
+  // }
 }
 

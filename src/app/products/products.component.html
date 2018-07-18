@@ -54,3 +54,41 @@
   </div>
 
 </div>
+
+
+ <!-- modal -->
+
+ <!-- <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Product information</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" name="email" [(ngModel)] = "newEm.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">Be careful!. It is used as a login</small>
+        </div>
+        <div class="form-group">
+            <label for="name">Password</label>
+            <input type="password" name="password" [(ngModel)] = "newEm.password" class="form-control" id="password" placeholder="Enter Password">
+          </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" [(ngModel)] = "newEm.name" class="form-control" id="name" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+          <select [(ngModel)]="newEm.role" name="role" class="form-control form-control-sm" id="role">
+            <option *ngFor="let r of roles">{{r.name}}</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+    </div>
+  </ng-template> -->
