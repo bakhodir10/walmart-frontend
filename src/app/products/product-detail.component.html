@@ -1,13 +1,23 @@
-<navi-bar></navi-bar>
+<div class='card' >
 <div class='card' >
   <div class='card-header'>
+      {{product.name}}
+  </div>
+  <div class='card-body'>
+      <div class="navbar navbar-light bg-light">Price :   {{product.price}}</div>
+      <hr>
+      <div class="navbar navbar-light bg-light">Expire Date :  {{product.expire_date}}</div>
+      <hr>
+      <div class="navbar navbar-light bg-light">Quantity :   {{product.quantity}}</div>
 
   </div>
+
   <div class='card-footer'>
     <button class='btn btn-outline-secondary'
-
+            (click)='onBack()'
             style='width:80px'>
       <i class='fa fa-chevron-left'></i> Back
     </button>
   </div>
+</div>
 </div>

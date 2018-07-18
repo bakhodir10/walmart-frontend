@@ -1,3 +1,4 @@
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AuthModel } from './auth/auth.model';
 
 import { FormsModule } from '@angular/forms';
@@ -22,9 +23,11 @@ import {UserService} from './user/user.service';
 import {ProductService} from './products/product.service';
 import { User } from './user/user.model';
 import { JwtInterceptor } from './auth/jwt.interceptor';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { StarComponent } from './shared/star.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductDetailComponent } from './products/product-detail.component';
+import { StarComponent } from './shared/star.component';
+
 
 
 @NgModule({
@@ -36,7 +39,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     NavComponent,
     SignUpComponent,
-    StarComponent
+    StarComponent,
+    ProductDetailComponent,
+
   ],
   imports: [
     FormsModule,

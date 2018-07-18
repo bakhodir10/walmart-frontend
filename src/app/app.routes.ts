@@ -6,10 +6,12 @@ import { EmployeeComponent } from './employee/employee.component';
 import {RoleGuardService} from './auth/role-guard.service';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './signUp/sign-up.component';
+import { ProductDetailComponent } from './products/product-detail.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'products', component: ProductsComponent },
+    { path: 'products/:_id', component: ProductDetailComponent },
     { path: 'signup', component: SignUpComponent },
     {path: 'login', component: LoginComponent},
     {

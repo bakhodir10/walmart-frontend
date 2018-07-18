@@ -34,7 +34,7 @@
           <tr *ngFor='let product of products | filter:term'>
            
             <td>
-              <a [routerLink]="['/products',product.productId]">
+              <a [routerLink]="['/products',product._id]">
                   {{product.name}}
               </a>
             </td>

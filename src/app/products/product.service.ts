@@ -23,7 +23,7 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.url);
   }
 
-  getOne(id: number): Observable<Product> {
+  getOne(id: string): Observable<Product> {
     const url = `${this.url}/${id}`;
     return this.httpClient.get<Product>(url);
   }
