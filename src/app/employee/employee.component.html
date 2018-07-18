@@ -29,16 +29,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let employee of employees| filter: term; let i = index" [attr.data-index]="i">
-            <td>{{i + 1}}</td>
-            <td>{{employee.name}}</td>
-            <td>{{employee.email}}</td>
-            <td>{{employee.role}}</td>
+          <tr *ngFor="let item of (employees$ | async).list| filter: term; let i = index" [attr.data-index]="i">
+          <!--<tr *ngFor="let item of employees| filter: term; let i = index" [attr.data-index]="i">-->
+          <td>{{i + 1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.role}}</td>
             <td>
-              <button type="button" class="btn btn-info" (click)="edit(employee._id); open(content)">Edit</button>
+              <button type="button" class="btn btn-info" (click)="edit(item._id); open(content)">Edit</button>
             </td>
             <td>
-              <button type="button" class="btn btn-danger" (click)="delete(employee._id)">Delete</button>
+              <button type="button" class="btn btn-danger" (click)="delete(item._id)">Delete</button>
             </td>
           </tr>
         </tbody>

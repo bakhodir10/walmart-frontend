@@ -12,3 +12,7 @@ export class User {
     rate: number
   };
 }
+
+export interface Users {
+  list: User[];
+}

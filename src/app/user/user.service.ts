@@ -32,13 +32,8 @@ export class UserService {
     return this.httpClient.put(putUrl, user, this.httpOptions);
   }
 
-  saveOne(user: User) {
-    console.log(user);
-    this.httpClient.post<User>(this.url, user , this.httpOptions).subscribe(
-      result => {
-        console.log(result);
-      },
-      error => console.log('There was an error: ', error));
+  saveOne(user: User): Observable<any>{
+    return this.httpClient.post<User>(this.url, user , this.httpOptions);
   }
 
   deleteOne(user: User) {
